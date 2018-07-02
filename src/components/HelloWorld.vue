@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="body">
   <div class="message">{{ message }}</div>
     <button class="add" v-on:click="add" > ADD NEW </button>
 
     <div class="list-item">
-      <div class="item" :id="index" v-for="(item,index) in list" :data-id="index" v-bind:class="{ activate: index == 0 }" :key="index" focusable v-bind:data-focusable-name="itemName(index)" v-bind:data-focusable-next-focus-left="leftTarget(index)"  v-bind:data-focusable-next-focus-up="upTarget(index)">
-        <img src="http://otttv.viettel.com.vn/api1/contents/pictures/57bbce48718c8a23a4a8d7fb">{{index}}
+      <div class="item" v-focused :id="index" v-for="(item,index) in list" :data-id="index" v-bind:class="{ activate: index == 0 }" :key="index" focusable v-bind:data-focusable-name="itemName(index)" v-bind:data-focusable-next-focus-left="leftTarget(index)"  v-bind:data-focusable-next-focus-up="upTarget(index)">
+        <img src="http://htc-wallpaper.com/wp-content/uploads/2013/09/David-Beckham1.jpg">{{index}}
 
       </div>
     </div>
@@ -51,8 +51,8 @@ export default {
   },
   mounted: function () {
     console.log('vueeeeee', $.caph)
-    this.initializeFocus()
-    jQuery.caph.focus.activate()
+    // this.initializeFocus()
+    // jQuery.caph.focus.activate()
     let controller = $.caph.focus.controllerProvider.getInstance()
     controller.focus($('.item.activate'))
     $('.add').caphButton({
@@ -75,7 +75,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 h1, h2 {
   font-weight: normal;
 }

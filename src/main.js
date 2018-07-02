@@ -6,7 +6,12 @@ import router from './router'
 require('../node_modules/caph-jquery.min.js')
 
 Vue.config.productionTip = false
-
+Vue.directive('focused', {
+  inserted: function (el) {
+  	$.caph.focus.$$toAvailable($(el))
+    console.log(el)
+  }
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
